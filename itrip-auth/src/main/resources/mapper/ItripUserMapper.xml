@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.ItripUserMapper">
+    <insert id="insertUserInfo" parameterType="com.po.ItripUser">
+        insert into itrip_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="usercode != null">
+                userCode,
+            </if>
+            <if test="userpassword != null">
+                userPassword,
+            </if>
+            <if test="usertype != null">
+                userType,
+            </if>
+            <if test="flatid != null">
+                flatID,
+            </if>
+            <if test="username != null">
+                userName,
+            </if>
+            <if test="wechat != null">
+                weChat,
+            </if>
+            <if test="qq != null">
+                QQ,
+            </if>
+            <if test="weibo != null">
+                weibo,
+            </if>
+            <if test="baidu != null">
+                baidu,
+            </if>
+            <if test="creationdate != null">
+                creationDate,
+            </if>
+            <if test="createdby != null">
+                createdBy,
+            </if>
+            <if test="modifydate != null">
+                modifyDate,
+            </if>
+            <if test="modifiedby != null">
+                modifiedBy,
+            </if>
+            <if test="activated != null">
+                activated,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="usercode != null">
+                #{usercode,jdbcType=VARCHAR},
+            </if>
+            <if test="userpassword != null">
+                #{userpassword,jdbcType=VARCHAR},
+            </if>
+            <if test="usertype != null">
+                #{usertype,jdbcType=INTEGER},
+            </if>
+            <if test="flatid != null">
+                #{flatid,jdbcType=BIGINT},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="wechat != null">
+                #{wechat,jdbcType=VARCHAR},
+            </if>
+            <if test="qq != null">
+                #{qq,jdbcType=VARCHAR},
+            </if>
+            <if test="weibo != null">
+                #{weibo,jdbcType=VARCHAR},
+            </if>
+            <if test="baidu != null">
+                #{baidu,jdbcType=VARCHAR},
+            </if>
+            <if test="creationdate != null">
+                #{creationdate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createdby != null">
+                #{createdby,jdbcType=BIGINT},
+            </if>
+            <if test="modifydate != null">
+                #{modifydate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifiedby != null">
+                #{modifiedby,jdbcType=BIGINT},
+            </if>
+            <if test="activated != null">
+                #{activated,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <select id="queryUserInfo" parameterType="com.po.ItripUser" resultType="com.po.ItripUser">
+        select * from itrip_user where userCode=#{usercode} and userPassword=#{userpassword} and activated=1
+    </select>
+
+</mapper>
